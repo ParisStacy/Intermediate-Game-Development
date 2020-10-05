@@ -22,6 +22,7 @@ public class Door : MonoBehaviour
 
     void OnMouseDown() {
         inOut.fade(newRoom);
+        source.pitch = Random.Range(.8f, 1f);
         source.Play();
     }
 }

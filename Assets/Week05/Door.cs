@@ -9,9 +9,11 @@ public class Door : MonoBehaviour
     [SerializeField]
     FadeInOut inOut;
 
+    AudioSource source;
+
     void Start()
     {
-        
+        source = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -20,5 +22,6 @@ public class Door : MonoBehaviour
 
     void OnMouseDown() {
         inOut.fade(newRoom);
+        source.Play();
     }
 }

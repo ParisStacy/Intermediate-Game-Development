@@ -24,7 +24,9 @@ public class EyeballAnimate : MonoBehaviour
     void Update()
     {
         //Iris//
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 1000f);
+        Vector3 mousePosition = hit.transform.position;
         Vector3 direction = (mousePosition - origin).normalized;
         tPos = origin + (direction * constraint);
         transform.position = Vector3.Lerp(transform.position, tPos, smoothing);

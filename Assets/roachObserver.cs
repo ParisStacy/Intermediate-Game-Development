@@ -5,6 +5,7 @@ using UnityEngine;
 public class roachObserver : MonoBehaviour
 {
     Animator animator;
+    AudioSource audioSource;
     float threshold;
     float _t;
 
@@ -13,6 +14,8 @@ public class roachObserver : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.enabled = false;
         threshold = Random.Range(0, 5);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -20,6 +23,12 @@ public class roachObserver : MonoBehaviour
         _t += Time.deltaTime;
         if (_t > threshold) {
             animator.enabled = true;
+        }
+    }
+
+    private void OnMouseDown() {
+        if (audioSource.clip != null) {
+            audioSource.Play();
         }
     }
 }

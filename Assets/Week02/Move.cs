@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
-{
+public class Move : MonoBehaviour {
     public int speed;
     private Vector2 move;
 
@@ -17,13 +16,11 @@ public class Move : MonoBehaviour
     private bool moving;
     private bool audioCuePlayed;
 
-    void Start()
-    {
-        
+    void Start() {
+
     }
 
-    void Update()
-    {
+    void Update() {
         move.x = Input.GetAxis("Horizontal");
         move.y = Input.GetAxis("Vertical");
 
